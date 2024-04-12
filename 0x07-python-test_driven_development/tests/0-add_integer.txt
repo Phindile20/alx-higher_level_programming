@@ -1,83 +1,136 @@
-The ``add_integer doctest`` module
-===================================
+The ``add_integer`` module
+==========================
 
 Using ``add_integer``
-___________________________________
+---------------------
 
-Tests to run for task 0, add_integer. 
+First import ``add_integer`` from the ``add_integer`` module:
 
-import function from module name:
+	>>> add_integer = __import__('0-add_integer').add_integer
 
-    >>> add_integer = __import__('0-add_integer').add_integer
+Now use it:
 
-    Adding a regular set of integers:
-    >>> add_integer(1, 2)
-    3
+	>>> add_integer(1, 2)
+	3
 
-    Adding one negative integer:
-    >>> add_integer(100, -2)
-    98
+	>>> add_integer(2)
+	100
 
-    Adding one integer, 'a' only:
-    >>> add_integer(2)
-    100
+	>>> add_integer(1, -2)
+	-1
 
-    Adding a floating point number and a negative number:
-    >>> add_integer(100.3, -2)
-    98
+	>>> add_integer(-2)
+	96
 
-    Adding with no input:
-    >>> add_integer()
-    Traceback (most recent call last):
-        ...
-    TypeError: add_integer() missing 1 required positional argument: 'a'
+	>>> add_integer(-1, -2)
+	-3
 
-    Adding with an order of operation in 'a':
-    >>> add_integer(2 + 4, 8)
-    14
+	>>> add_integer(1, 2.5)
+	3
 
-    Adding with order of operation in 'a' and no 'b':
-    >>> add_integer(2 + 4)
-    104
+	>>> add_integer(2.5)
+	100
 
-    Adding with order of operation in 'a' and the letter 'b':
-    >>> add_integer(2 + 4, b)
-    Traceback (most recent call last):
-        ...
-    NameError: name 'b' is not defined
+	>>> add_integer(1, -2.5)
+	-1
 
-    Adding one letter and one integer:
-    >>> add_integer(e, 9)
-    Traceback (most recent call last):
-        ...
-    NameError: name 'e' is not defined
+	>>> add_integer(-2.5)
+	96
 
-    Adding an integer with letter and an integer:
-    >>> add_integer(10x, 9)
-    Traceback (most recent call last):
-        ...
-    SyntaxError: invalid syntax
+	>>> add_integer(-1, -2.5)
+	-3
 
-    Adding integer 'a' with a comma and missing 'b':
-    >>> add_integer(10,  )
-    108
+	>>> add_integer(1.5, 2.5)
+	3
 
-    Adding two integers with extra space after 'b':
-    >>> add_integer(10, 2 )
-    12
+	>>> add_integer(2.5)
+	100
 
-    Adding two negative numbers, one a floating point:
-    >>> add_integer(-11, -20.00)
-    -31
+	>>> add_integer(1.5, -2.5)
+	-1
 
-    Adding an integer with a string literal:
-    >>> add_integer(3, "hello")
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
+	>>> add_integer(-2.5)
+	96
 
-    Adding an integer and a string literal:
-    >>> add_integer("3", 6)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+	>>> add_integer(-1.5, -2.5)
+	-3
+
+	>>> add_integer(float('inf'), 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(float('inf'), float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1, float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(-float('inf'), 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(-float('inf'), -float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1, -float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer(-float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+	
+	>>> add_integer("Holberton", 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer("Holberton", "School")
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1, "School")
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer("Holberton")
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(None, 1)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(None, None)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(1, None)
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
